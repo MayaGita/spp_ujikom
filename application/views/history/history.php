@@ -1,4 +1,10 @@
+<style>
+  .history{
+    height:550px;
+    overflow-y:scroll;
+  }
 
+  </style>
 
  <?php if($this->session->flashdata('message')) : ?>
               <div class="alert alert-success  alert-dismissible fade show mb-4" role="alert">
@@ -10,7 +16,8 @@
              <?php endif; ?>    
                        
 
-    <div class="card bg-white shadow mb-3 " >
+    <div class="container " >
+    <div class="card bg-white history shadow mb-3" >
             <div class="card-header bg-white  py-4" > 
            <h1 class="m-0 ml-3 font-weight-bold text-dark" > <i class="fas fa-history"></i> History</h1>
            <h4 class="ml-5 pl-5 font-weight-bold text-gray-500"> pembayaran</h4>
@@ -49,6 +56,7 @@
                    <?php }  ?>
                 
               </div>
+            </div>
             </div>
           </div>
         </div>
