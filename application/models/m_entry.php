@@ -31,38 +31,24 @@ class m_entry extends CI_Model{
         return $query;
        }
        
-       public function getSiswaById($id){
+       public function getSiswa(){
         $this->db->select('*');
         $this->db->from('siswa');
         $this->db->join('kelas','siswa.id_kelas =kelas.id_kelas');      
-        $this->db->join('spp','siswa.id_spp =spp.id_spp');      
-   
-        $this->db->where('nisn', $id ); 
+        $this->db->join('spp','siswa.id_spp =spp.id_spp');     
 
     
         $query = $this->db->get();
-        return $query->row_array();
+        return $query;
 
          
         // $data = $this->db->query("SELECT * from pembayaran join siswa on pembayaran.nisn=siswa.nisn  where id_pembayaran = '$id' ");
         // return $data->row_array();
 
       } 
-      public function tambah_data(){
-        $data =[
-          'id_pembayaran' => htmlspecialchars($this->input->post('id_pembayaran', TRUE)),
-          'id_petugas' => htmlspecialchars($this->input->post('id_petugas')),
-          'nisn' => htmlspecialchars($this->input->post('nisn')),
-          'id_kelas' => htmlspecialchars($this->input->post('id_kelas')),
-          'tgl_bayar' => htmlspecialchars($this->input->post('tgl_bayar')),
-          'bulan_dibayar' => htmlspecialchars($this->input->post('bulan_dibayar')),
-          'tahun_dibayar' => htmlspecialchars($this->input->post('tahun_dibayar')),
-          'id_spp' => htmlspecialchars($this->input->post('id_spp')),
-          'jumlah_bayar' => htmlspecialchars($this->input->post('jumlah_bayar')),
-   
-   
-        ];
-        $this->db->insert('pembayaran',$data);
+      public function tambah_data($table,$data){
+      
+        $this->db->insert($table,$data);
       }
   
  

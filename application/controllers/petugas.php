@@ -41,6 +41,7 @@ class petugas extends CI_Controller {
 	
 		}			
 		public function create(){
+			$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 			$this->form_validation->set_rules('id_petugas','Id_petugas','required|trim');
 			$this->form_validation->set_rules('username','Username','required|trim');
 			$this->form_validation->set_rules('password','Password','required|trim');
@@ -85,9 +86,10 @@ class petugas extends CI_Controller {
 		}
 	
 		public function update($id){
+			$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 			$data['page_title'] = 'Update Data petugas'; 
 	
-			$data['petugas'] = $this->M_petugas->getPetugasById($id);
+			$data['petugas2'] = $this->M_petugas->getPetugasById($id);
 
 			$this->form_validation->set_rules('username','Username','required|trim');
 			$this->form_validation->set_rules('nama_petugas','Nama_petugas','required|trim');
@@ -98,7 +100,7 @@ class petugas extends CI_Controller {
 				$this->load->view('petugas/update', $data);
 				$this->load->view('include/user-footer');
 			}else{
-			$this->M_siswa->update_data();
+			$this->M_petugas->update_data();
 			$this->session->set_flashdata('message', 'data successfully updated');
 			redirect('petugas/dataPetugas');
 	
@@ -110,7 +112,7 @@ class petugas extends CI_Controller {
 	
 		public function delete($id){
 	
-			$this->M_siswa->hapus_data($id);
+			$this->M_petugas->hapus_data($id);
 			$this->session->set_flashdata('message', 'data deleted');
 			redirect('petugas/dataPetugas');
 	

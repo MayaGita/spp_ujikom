@@ -29,6 +29,7 @@ class spp extends CI_Controller {
 
 	}
 	public function create(){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$this->form_validation->set_rules('id_spp','Id_spp','required|trim');
 		$this->form_validation->set_rules('tahunAjaran','TahunAjaran','required|trim');
 		$this->form_validation->set_rules('nominal','Nominal','required|trim');
@@ -69,6 +70,7 @@ class spp extends CI_Controller {
 	}
 
 	public function update($id){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'Update Data spp'; 
 
 		$data['spp'] = $this->M_spp->getSppById($id);

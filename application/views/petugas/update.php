@@ -14,14 +14,14 @@
  <div class="form-group">
  <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
 
- <input type="hidden" name="id_petugas" id="id_petugas" value="<?= $petugas['id_petugas'] ?>"/>
+ <input type="hidden" name="id_petugas" id="id_petugas" value="<?= $petugas2['id_petugas'] ?>"/>
  <label for="username">Username akun petugas</label>
-   <input type="text" class="form-control" id="username" name="username" <?= $petugas['username'] ?>>
+   <input type="text" class="form-control" id="username" name="username" value="<?= $petugas2['username'] ?>">
    <small id="username" class="form-text text-danger"><?= form_error('username');?></small>
  </div>
  <div class="form-group">
    <label for="nama_petugas">nama petugas</label>
-   <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" <?= $petugas['nama_petugas'] ?>>
+   <input type="text" class="form-control" id="nama_petugas" name="nama_petugas" value="<?= $petugas2  ['nama_petugas'] ?>">
    <small id="nama_petugas" class="form-text text-danger"><?= form_error('nama_petugas');?></small>
  </div>
 

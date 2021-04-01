@@ -44,6 +44,7 @@ class siswa extends CI_Controller {
 	}	
 
 	public function create(){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$this->form_validation->set_rules('nisn','Nisn','required|trim|is_unique[siswa.nisn]');
 		$this->form_validation->set_rules('nis','Nis','required|trim|is_unique[siswa.nis]');
 		$this->form_validation->set_rules('password','Password','required|trim');
@@ -93,6 +94,7 @@ class siswa extends CI_Controller {
 	}
 
 	public function update($id){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'Update Data siswa'; 
 
 		$data['siswa'] = $this->M_siswa->getSiswaById($id);

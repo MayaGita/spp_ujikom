@@ -46,6 +46,7 @@ class authAdmin extends CI_Controller {
 					  //jika password sama
 			
 					  $data =[
+						'id_petugas'=>$petugas['id_petugas'], 
 						'username' =>$petugas['username'],
 						'level' =>$petugas['level']
 			

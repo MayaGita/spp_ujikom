@@ -40,7 +40,7 @@
 	];
 
 
-  $this->db->where('petugas', $this->input->post('id_petugas'));
+  $this->db->where('id_petugas', $this->input->post('id_petugas'));
   $this->db->update('petugas',$data);
 }
 

@@ -75,7 +75,7 @@
                           no telpon
                        </th>
                        <th scope="col">
-                          nominal
+                          nominal bayar
                        </th>
                        <th scope="col">
                           tahun ajaran

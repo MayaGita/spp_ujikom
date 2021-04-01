@@ -38,8 +38,9 @@
  </div>
  <div class="form-group">
     <label for="id_kelas">Kelas</label>
-    <select class="form-control" id="id_kelas" name="id_kelas" placeholder="masukan kelas">
-      <option value='1001'>X RPL</option>
+    <select class="form-control" id="id_kelas " name="id_kelas">
+  <option ></option>
+  <option value='1001'>X RPL</option>
       <option value='1002'>X TKJ</option>
       <option value='1003'>X OTKP</option>
       <option value='1101'>XI RPL</option>
@@ -48,8 +49,7 @@
       <option value='1201'>XII RPL</option>
       <option value='1202'>XII TKJ</option>
       <option value='1203'>XII OTKP</option>
-    
-    </select>
+ </select>
   </div>
  <div class="form-group">
    <label for="alamat"> Alamat siswa</label>
@@ -78,3 +78,9 @@
 </div>
 </div>
      </div>
+     </script>
+       <script type="text/javascript">
+ $(document).ready(function() {
+     $('select').select2();
+ });
+</script>

@@ -16,7 +16,7 @@ class kelas extends CI_Controller {
 
 
 	public function index(){
-		
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel kelas'; 
 		$data['pagename'] = 'admin page';
 		$data['kelas']=$this->M_kelas->select_kelas()->result();
@@ -29,6 +29,7 @@ class kelas extends CI_Controller {
 
 	}	
 	public function create(){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$this->form_validation->set_rules('id_kelas','Id_kelas','required|trim');
 		$this->form_validation->set_rules('nama_kelas','Nama_kelas','required|trim');
 		$this->form_validation->set_rules('jurusan','jurusan','required|trim');
@@ -69,6 +70,7 @@ class kelas extends CI_Controller {
 	}
 
 	public function update($id){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'Update Data kelas'; 
 
 		$data['kelas'] = $this->M_kelas->getKelasById($id);

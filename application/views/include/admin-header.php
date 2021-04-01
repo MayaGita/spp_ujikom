@@ -19,7 +19,11 @@
   <link href="<?= base_url('asset/')?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  
 <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+ <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
   <!-- Custom styles for this template-->
   <link href="<?= base_url('asset/')?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?= base_url('asset/')?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -91,7 +95,7 @@
     <span>Entry transaksi</span></a>
 </li>
     <li class="nav-item">
-  <a class="nav-link" href="<?php echo site_url("petugas/dataPetugas"); ?>">
+  <a class="nav-link" href="<?php echo site_url("history/history"); ?>">
     <i class="fas fa-history"></i>
     <span>History transaksi</span></a>
 </li>
@@ -156,7 +160,7 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $petugas['username'];?></span>
             <img class="img-profile rounded-circle" src="<?php echo base_url('asset/img/kai.jpg');?>"></a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

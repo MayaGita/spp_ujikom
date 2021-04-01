@@ -17,7 +17,7 @@ class admin extends CI_Controller {
 			 $data['page_title'] = 'halaman admin'; 
 			 $data['pagename'] = 'admin page'; 
 			 $data['siswa']= $this->db->count_all('siswa');
-			 $data['petugas']= $this->db->count_all('petugas');
+			 $data['petugas2']= $this->db->count_all('petugas');
 
 			// if($this->input->post('keyword')){
 			//	 $data['storage'] = $this->Model_storage->searchData();
