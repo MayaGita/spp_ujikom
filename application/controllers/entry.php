@@ -55,13 +55,13 @@ class entry extends CI_Controller {
 
 	   
    }else{   
-     if($this->M_entry->isPembayaranExist($nisn , $bulan, $tahun) == false){
+     if($this->M_entry->isPembayaranExist($nisn , $bulan , $tahun) == false){
 		 	
 		$this->load->view('include/entry-header', $data);
 		$this->load->view('entry/insert' ,$data);
 		$this->load->view('include/user-footer');
         
-		$this->session->set_flashdata('message', "spp sudah dibayar");
+		$this->session->set_flashdata('message2', "spp sudah dibayar");
 
 	
 		}else{

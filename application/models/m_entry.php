@@ -52,12 +52,12 @@ class m_entry extends CI_Model{
 
       }
 
-      public function isPembayaranExist($array){
+      public function isPembayaranExist($nisn , $bulan, $tahun){
         $array = array('nisn' => $nisn, 'bulan_dibayar' => $bulan, 'tahun_dibayar' => $tahun);
 
         $this->db->where($array);
 
-        $query = $this->db->get('pembayaran');
+        $query = $this->db->get('pembayaran', $nisn , $bulan, $tahun);
         if ($query->num_rows() == 0){
             return true;
         }
