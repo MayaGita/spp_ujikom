@@ -14,9 +14,12 @@
 
    
    public function select_spp(){
-	   $spp=$this->db->query("select*from spp ");
-
-	   return $spp;
+    $cari = $this->input->GET('cari', TRUE); 
+    $this->db->select('*');
+    $this->db->from('spp');
+    $this->db->like("tahunAjaran" , $cari);  
+    $query = $this->db->get();
+    return $query;
    }
  
    public function tambah_spp($table,$data){

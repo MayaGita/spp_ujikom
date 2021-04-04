@@ -7,17 +7,15 @@
        <h6 class="m-0 font-weight-bold  ">DASHBOARD</h6>
           </div>
           <div class="card-body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-               Atque repellendus expedita harum, error incidunt nostrum iste mollitia 
-              dolores laborum doloribus vitae laboriosam praesentium alias ad totam repudiandae! Nisi, voluptas magnam.
-            </p>
+            <h2>Halaman siswa
+            </h2>
          </div>
         </div>
 <!-- Content Row -->
-<div class="row">
+<!-- <div class="row"> -->
 
   <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
     <div class="card  shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -31,10 +29,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
     <div class="card  shadow h-100 py-2">
       <div class="card-body">
         <div class="row no-gutters align-items-center">
@@ -67,7 +65,7 @@
   </div>
 
 
-</div>
+</div> -->
 
 
         

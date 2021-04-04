@@ -30,8 +30,11 @@
  </div>
  <div class="form-group">
     <label for="id_kelas">Kelas</label>
-    <select class="form-control" id="id_kelas" name="id_kelas" placeholder="masukan kelas">
-      <option value='1001'>X RPL</option>
+    <select class="form-control" id="id_kelas " name="id_kelas">
+   <?php foreach($siswa2->result() as $s){ ?>
+     <option value="<?php echo $s->id_kelas; ?>"><?php echo $s->nama_kelas; ?></option>
+     <?php } ?>
+     <option value='1001'>X RPL</option>
       <option value='1002'>X TKJ</option>
       <option value='1003'>X OTKP</option>
       <option value='1101'>XI RPL</option>
@@ -40,8 +43,7 @@
       <option value='1201'>XII RPL</option>
       <option value='1202'>XII TKJ</option>
       <option value='1203'>XII OTKP</option>
-    
-    </select>
+  </select>
   </div>
  <div class="form-group">
    <label for="alamat"> Alamat siswa</label>
@@ -53,11 +55,14 @@
  </div>
  <div class="form-group">
     <label for="id_spp">Tahun ajaran</label>
-    <select class="form-control" id="id_spp" name="id_spp" placeholder="masukan tahun ajaran">
-      <option value='101'>2018/2019</option>
-      <option value='102'>2020/2021</option>
-      <option value='103S'>2021/2022</option>
-    
+    <select class="form-control" id="tahunAjaran" name="id_spp">
+     <?php foreach($siswa2->result() as $s){ ?>
+     <option value="<?php echo $s->id_spp; ?>"><?php echo $s->tahunAjaran; ?></option>
+    <?php } ?>
+     <option value='101'>2018/2019</option>
+      <option value='102'>2019/2020</option>
+      <option value='103'>2020/2021</option>
+      <option value='104'>2021/2022</option>
     </select>
   </div>
  <button type="submit" class="btn btn-primary py-2 px-5 mt-5">Submit</button>

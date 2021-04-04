@@ -58,7 +58,7 @@
   <div class="sb-sidenav-menu-heading text-gray-800 pl-3 ">Siswa</div>
   <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-    <a class="nav-link" href="<?php echo site_url("siswa/dataSiswa"); ?>">
+    <a class="nav-link" href="<?php echo site_url("siswa/profile"); ?>">
       <i class="fas fa-user fa-2x "></i>
       <span>profil siswa</span></a>
   </li>
@@ -68,7 +68,7 @@
   <div class="sb-sidenav-menu-heading text-gray-700 pl-3">Transaksi</div>
 <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-  <a class="nav-link" href="<?php echo site_url("petugas/dataPetugas"); ?>">
+  <a class="nav-link" href="<?php echo site_url("siswa/History"); ?>">
     <i class="fas fa-history"></i>
     <span>History transaksi</span></a>
 </li>
@@ -140,7 +140,7 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $siswa['username'];?></span>
             <img class="img-profile rounded-circle" src="<?php echo base_url('asset/img/kai.jpg');?>"></a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -149,7 +149,7 @@
               Profile
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="<?=base_url('authAdmin/logout')?>" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="<?=base_url('authSiswa/logout')?>" data-toggle="modal" data-target="#logoutModal">
               <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
             </a>

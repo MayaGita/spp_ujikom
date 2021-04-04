@@ -49,7 +49,23 @@ class m_entry extends CI_Model{
       public function tambah_data($table,$data){
       
         $this->db->insert($table,$data);
+
       }
-  
+
+      public function isPembayaranExist($array){
+        $array = array('nisn' => $nisn, 'bulan_dibayar' => $bulan, 'tahun_dibayar' => $tahun);
+
+        $this->db->where($array);
+
+        $query = $this->db->get('pembayaran');
+        if ($query->num_rows() == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+      }
+       
+
  
 }

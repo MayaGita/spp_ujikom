@@ -22,15 +22,14 @@
 
              <div class="row mt-2 ml-3" >
                 <div class="col-md-3">
-                <div class="form" action="" method="post">
+                <form action="" method="GET" class="justify-content-right">
                 <div class="input-group ">
-               
-                <input type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Data" name="keyword">
-                <div class="input-group-append">
-                <button class="btn btn-cyan" type="submit">search</button>
-                </div>
-                </div>
                 
+               
+                <input type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Data" name="cari">
+                <div class="input-group-append">
+                <button class="btn btn-cyan" type="submit" calue="cari">search</button>
+                </form>
                 </div>
                 
                 </div>
@@ -69,7 +68,7 @@
                        <tbody>
                        <?php
                   $i =0;
-                  foreach ($kelas as $class) {
+                  foreach ($data->result() as $class) {
                      $i++;
                   ?>   
                       
@@ -92,6 +91,12 @@
                 <?php  } ?>  
                 </tbody>   
                </table>
+               <div class="row">
+        <div class="col">
+            <!--Tampilkan pagination-->
+            <?php echo $pagination; ?>
+        </div>
+    </div>
                </div>
               </div>
             </div>

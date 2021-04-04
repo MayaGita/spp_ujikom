@@ -12,9 +12,12 @@
   
 
  	public function select_petugas(){
- 		$sql=$this->db->query("select *from petugas");
-
- 		return $sql;
+    $cari = $this->input->GET('cari', TRUE); 
+    $this->db->select('*');
+    $this->db->from('petugas');
+    $this->db->like("username" , $cari);  
+    $query = $this->db->get();
+    return $query;
    }
    
    public function select_kelas(){

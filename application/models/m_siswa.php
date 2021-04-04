@@ -41,15 +41,16 @@
 
 
   public function getSiswaById($id){
-    return $this->db->get_where('siswa',['nisn'=> $id])->row_array();
+    $this->db->select('*');
+    $this->db->from('siswa');
+    $this->db->join('kelas','siswa.id_kelas =kelas.id_kelas');      
+    $this->db->join('spp','siswa.id_spp =spp.id_spp'); 
+    $this->db->where('nisn', $id);
+    $query = $this->db->get();
+    return $query;
   }  
   
-  public function getKelasById($id){
-    return $this->db->get_where('kelas',['id_kelas'=> $id])->row_array();
-  }  
-  public function getSppById($id){
-    return $this->db->get_where('spp',['id_spp'=> $id])->row_array();
-  }  
+
 
 
   public function update_data(){
@@ -74,6 +75,22 @@
     $this->db->where('nisn',$id);
     $this->db->delete('siswa');
   }
+  public function tampilHistory(){
+    $this->db->select('*');
+    $this->db->from('pembayaran');
+    $this->db->join('petugas','pembayaran.id_petugas =petugas.id_petugas');      
+    $this->db->join('kelas','pembayaran.id_kelas =kelas.id_kelas');      
+    $this->db->join('siswa','pembayaran.nisn =siswa.nisn');      
+    $this->db->join('spp','pembayaran.id_spp =spp.id_spp');
+    $this->db->where('siswa.username' ,$this->session->userdata('username'));
+    $this->db->order_by('tgl_bayar', 'DESC');
+
+
+
+    $query = $this->db->get();
+    return $query;
+   }
+
 
   
 

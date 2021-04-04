@@ -13,11 +13,18 @@
 
 
    
-   public function select_kelas(){
-	   $kelas=$this->db->query("select*from kelas ");
-
-	   return $kelas;
-   }
+  //  public function select_kelas($limit, $start){
+  //   $cari = $this->input->GET('cari', TRUE); 
+  //   $this->db->select('*');
+  //   $this->db->from('kelas', $limit, $start);
+  //   $this->db->like("nama_kelas" , $cari);  
+  //   $query = $this->db->get();
+  //   return $query;
+  //  }
+  function get_kelas_list($limit, $start){
+    $query = $this->db->get('kelas', $limit, $start);
+    return $query;
+}
  
    public function tambah_kelas($table,$data){
     $this->db->insert($table,$data);

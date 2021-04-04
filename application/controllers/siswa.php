@@ -15,7 +15,7 @@ class siswa extends CI_Controller {
 	}
 
 	 public function index(){
-		     $data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
+		$data['siswa'] = $this->db->get_where('siswa',['username'=> $this->session->userdata('username')])->row_array();
 			 $data['page_title'] = 'siswa'; 
 			 $data['pagename'] = 'halaman siswa'; 
 
@@ -25,10 +25,10 @@ class siswa extends CI_Controller {
 			
 	    	$this->load->view('include/siswa-header',$data);
 	    	$this->load->view('siswa/index',$data);
-	    	$this->load->view('include/user-footer');
+	    	$this->load->view('include/siswa-footer');
 		}
 
-	public function dataSiswa(){
+	public function dataSiswa(){	
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel siswa'; 
 		$data['pagename'] = 'admin page';
@@ -97,9 +97,9 @@ class siswa extends CI_Controller {
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'Update Data siswa'; 
 
-		$data['siswa'] = $this->M_siswa->getSiswaById($id);
-		$data['kelas'] = $this->M_siswa->getKelasById($id);
-		$data['spp'] = $this->M_siswa->getSppById($id);
+		$data['siswa'] = $this->M_siswa->getSiswaById($id)->row_array();
+		$data['siswa2'] = $this->M_siswa->getSiswaById($id);
+	
 		$this->form_validation->set_rules('nisn','Nisn','required|trim');
 		$this->form_validation->set_rules('nis','Nis','required|trim');
 		$this->form_validation->set_rules('nama','Nama','required|trim');
@@ -130,6 +130,40 @@ class siswa extends CI_Controller {
 	    redirect('siswa/dataSiswa');
 
 	} 
+
+
+	public function profile(){
+		$data['siswa'] = $this->db->get_where('siswa',['username'=> $this->session->userdata('username')])->row_array();
+		$data['nisn'] = $this->db->get_where('siswa',['nisn'=> $this->session->userdata('nisn')])->row_array();
+		$data['nis'] = $this->db->get_where('siswa',['nis'=> $this->session->userdata('nis')])->row_array();
+		$data['nama'] = $this->db->get_where('siswa',['nama'=> $this->session->userdata('nama')])->row_array();
+		$data['id_kelas'] = $this->db->get_where('siswa',['id_kelas'=> $this->session->userdata('id_kelas')])->row_array();
+			 $data['page_title'] = 'siswa'; 
+			 $data['pagename'] = 'halaman siswa'; 
+
+			// if($this->input->post('keyword')){
+			//	 $data['storage'] = $this->Model_storage->searchData();
+			//}
+			
+	    	$this->load->view('include/siswa-header',$data);
+	    	$this->load->view('siswa/profile',$data);
+	    	$this->load->view('include/siswa-footer');
+		}
+		public function history(){
+			$data['siswa'] = $this->db->get_where('siswa',['username'=> $this->session->userdata('username')])->row_array();
+			$data['page_title'] = 'history '; 
+			$data['pagename'] = 'halaman siswa';
+	
+			$data['recent'] = $this->M_siswa->tampilHistory()->result();
+	
+			
+			$this->load->view('include/siswa-header',$data);
+			$this->load->view('siswa/history',$data);
+			$this->load->view('include/siswa-footer');	
+	
+	
+		}
+	
 
 		
 }

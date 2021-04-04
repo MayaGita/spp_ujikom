@@ -6,14 +6,7 @@
 
   </style>
 
- <?php if($this->session->flashdata('message')) : ?>
-              <div class="alert alert-success  alert-dismissible fade show mb-4" role="alert">
-                  <p><?php echo $this->session->flashdata('message'); ?> </p>  
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-             </button>
-             </div>  
-             <?php endif; ?>    
+
                        
 
     <div class="card bg-white  shadow mb-3" >
@@ -40,7 +33,7 @@
                    </div>
                    <div class="card-body">
            
-                     <p class="card-text py-3"> siswa <strong><?php echo $r->nama?></strong> dari kelas <strong><?php echo $r->nama_kelas?></strong>
+                     <p class="card-text py-3"> <strong><?php echo $r->username?></strong> dari kelas <strong><?php echo $r->nama_kelas?></strong>
                      telah membayar spp sebesar <strong>RP.<?= $r->jumlah_bayar?></strong> 
                      untuk bulan <strong><?php echo $r->bulan_dibayar?></strong> 
                      tahun <strong><?= $r-> tahun_dibayar?></strong> dengan

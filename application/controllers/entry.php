@@ -44,7 +44,8 @@ class entry extends CI_Controller {
 		$this->form_validation->set_rules('tahun_dibayar','tahun_dibayar','required|trim');
 		$this->form_validation->set_rules('id_spp','Id_spp','required|trim');
 		$this->form_validation->set_rules('jumlah_bayar','Jumlah_bayar','required|trim');
-  
+
+	
 
 	 if($this->form_validation->run() ==false){
 		
@@ -54,24 +55,38 @@ class entry extends CI_Controller {
 
 	   
    }else{   
-	$data =[
-		'id_pembayaran' => htmlspecialchars($this->input->post('id_pembayaran', TRUE)),
-		'id_petugas' => htmlspecialchars($this->input->post('id_petugas')),
-		'nisn' => htmlspecialchars($this->input->post('nisn')),
-		'id_kelas' => htmlspecialchars($this->input->post('id_kelas')),
-		'tgl_bayar' => htmlspecialchars($this->input->post('tgl_bayar')),
-		'bulan_dibayar' => htmlspecialchars($this->input->post('bulan_dibayar')),
-		'tahun_dibayar' => htmlspecialchars($this->input->post('tahun_dibayar')),
-		'id_spp' => htmlspecialchars($this->input->post('id_spp')),
-		'jumlah_bayar' => htmlspecialchars($this->input->post('jumlah_bayar')),
- 
- 
-	  ];
-	   
-    	$this->M_entry->tambah_data('pembayaran', $data);
+     if($this->M_entry->isPembayaranExist($nisn , $bulan, $tahun) == false){
+		 	
+		$this->load->view('include/entry-header', $data);
+		$this->load->view('entry/insert' ,$data);
+		$this->load->view('include/user-footer');
+        
+		$this->session->set_flashdata('message', "spp sudah dibayar");
 
-	   $this->session->set_flashdata('message', "pembayaran berhasil");
-	   redirect('history/history');
+	
+		}else{
+			$data =[
+				'id_pembayaran' => htmlspecialchars($this->input->post('id_pembayaran', TRUE)),
+				'id_petugas' => htmlspecialchars($this->input->post('id_petugas',True)),
+				'nisn' => htmlspecialchars($this->input->post('nisn')),
+				'id_kelas' => htmlspecialchars($this->input->post('id_kelas')),
+				'tgl_bayar' => htmlspecialchars($this->input->post('tgl_bayar')),
+				'bulan_dibayar' => htmlspecialchars($this->input->post('bulan_dibayar')),
+				'tahun_dibayar' => htmlspecialchars($this->input->post('tahun_dibayar')),
+				'id_spp' => htmlspecialchars($this->input->post('id_spp')),
+				'jumlah_bayar' => htmlspecialchars($this->input->post('jumlah_bayar')),
+		 
+		 
+			  ];
+			   
+				$this->M_entry->tambah_data('pembayaran', $data);
+		
+			   $this->session->set_flashdata('message', "pembayaran berhasil");
+			   redirect('history/history');
+
+		}
+
+	
    }
 
  

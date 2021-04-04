@@ -44,7 +44,11 @@ class authSiswa extends CI_Controller {
 					  //jika password sama
 			
 					  $data =[
+						'nisn' =>$siswa ['nisn'],
+						'nis' =>$siswa ['nis'],
 						'username' =>$siswa ['username'],
+						'nama' =>$siswa['nama'],
+						'id_kelas' =>$siswa['id_kelas']
 				
 					   ];
 						//simpan email dan id_role dalam session 
@@ -83,8 +87,12 @@ class authSiswa extends CI_Controller {
       public function logout(){
         //menghapus data session
 
+        $this->session->unset_userdata('nisn');
+        $this->session->unset_userdata('nis');
         $this->session->unset_userdata('username');
-        $this->session->unset_userdata('level');
+        $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('id_kelas');
+
             $this->session->set_flashdata('message', 'logout success');
         redirect('authSiswa');
 

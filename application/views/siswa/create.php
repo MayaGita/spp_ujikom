@@ -25,7 +25,7 @@
  <div class="form-group">
    <label for="password">password akun siswa</label>  
    <input type="text" class="form-control " id="password" name="password" placeholder="masukan password">
-   <small id="password" class="form-text text-danger"><?= form_error('harga_satuan');?></small>
+   <small id="password" class="form-text text-danger"><?= form_error('password');?></small>
  </div>
  <div class="form-group">
    <label for="username">Username akun siswa</label>
@@ -35,12 +35,13 @@
  <div class="form-group">
    <label for="nama">Nama siswa</label>
  <input type="text" name="nama" id="nama" class="form-control" placeholder="masukan nama siswa">
+   <small id="nama" class="form-text text-danger"><?= form_error('nama');?></small>
  </div>
  <div class="form-group">
     <label for="id_kelas">Kelas</label>
     <select class="form-control" id="id_kelas " name="id_kelas">
   <option ></option>
-  <option value='1001'>X RPL</option>
+      <option value='1001'>X RPL</option>
       <option value='1002'>X TKJ</option>
       <option value='1003'>X OTKP</option>
       <option value='1101'>XI RPL</option>
@@ -54,17 +55,20 @@
  <div class="form-group">
    <label for="alamat"> Alamat siswa</label>
     <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+   <small id="alamat" class="form-text text-danger"><?= form_error('alamat');?></small>
   </div>
  <div class="form-group">
    <label for="no_telp">Nomor telepon</label>
  <input type="tel" name="no_telp" id="no_telp" class="form-control" placeholder="masukan nomor telepon">
+   <small id="no_telp" class="form-text text-danger"><?= form_error('no_telp');?></small>
  </div>
  <div class="form-group">
     <label for="id_spp">Tahun ajaran</label>
     <select class="form-control" id="id_spp" name="id_spp" placeholder="masukan tahun ajaran">
       <option value='101'>2018/2019</option>
-      <option value='102'>2020/2021</option>
-      <option value='103S'>2021/2022</option>
+      <option value='102'>2019/2020</option>
+      <option value='103'>2020/2021</option>
+      <option value='104'>2021/2022</option>
     
     </select>
   </div>

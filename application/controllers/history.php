@@ -21,10 +21,11 @@ class history extends CI_Controller {
 		$data['pagename'] = 'admin page';
 
         $data['recent'] = $this->M_history->tampilHistory()->result();
+
 		
 		$this->load->view('include/admin-header',$data);
 		$this->load->view('history/history',$data);
-		$this->load->view('include/user-footer');
+		$this->load->view('include/user-footer');	
 
 
 	}
