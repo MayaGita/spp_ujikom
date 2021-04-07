@@ -6,14 +6,16 @@
 </style>
           
 <div class="container-fluid mt-5">
-<?php if($this->session->flashdata('message')) : ?>
+<?php if($this->session->flashdata('message2')) : ?>
               <div class="alert alert-danger  alert-dismissible fade show mb-4" role="alert">
-                  <p><?php echo $this->session->flashdata('message2'); ?> </p>  
+              <hr>
+                  <h4><i class="fas fa-exclamation fa-lg"></i> <?php echo $this->session->flashdata('message2'); ?> </h4>  
+                  <hr>    
              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
              </div>  
-             <?php endif; ?>    
+             <?php endif; ?> 
     <div class="card shadow mb-4 " >
             <div class="card-header py-3 " > 
               <h6 class="m-0 font-weight-bold ">pembayaran</h6>

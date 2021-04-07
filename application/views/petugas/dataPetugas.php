@@ -65,17 +65,17 @@
                                                 
                        </tr>
                        </thead>
-
                        <tbody>
                        <?php
                   $i =0;
-                  foreach ($dataPetugas as $petugas) {
+                  foreach ($data->result() as $petugas) {
                      $i++;
                   ?>   
                       
 
                 <tr>
-                  <td> <?php echo $i ?></td>
+                 
+                <td> <?php echo $i ?></td>
                   <td> <?php echo $petugas->username; ?></td>
                   <td> <?php echo $petugas->nama_petugas; ?></td>
                   <td> <?php echo $petugas->level; ?></td>
@@ -83,6 +83,7 @@
                   <a href="<?php echo base_url(); ?>petugas/delete/<?php echo $petugas->id_petugas; ?>" class="badge badge-danger" 
                   onclick="return confirm('apakah anda yakin?')"><i class="far fa-trash-alt"></i></a>
                   </td>
+              
                   
              
                 </tr>
@@ -91,6 +92,12 @@
                 <?php  } ?>  
                 </tbody>   
                </table>
+               <div class="row">
+        <div class="col">
+            <!--Tampilkan pagination-->
+            <?php echo $pagination; ?>
+        </div>
+    </div>
                </div>
               </div>
             </div>

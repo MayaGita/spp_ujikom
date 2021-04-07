@@ -49,12 +49,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-
-  <!-- Core plugin JavaScript-->
   <script src="<?= base_url('asset/')?>vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="<?= base_url('plugin/')?>datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('asset/')?>js/sb-admin-2.min.js"></script>
   <script src="<?=base_url('asset/')?>js/script.js"></script>
@@ -73,6 +72,10 @@
  $(document).ready(function() {
      $('select').select2();
  });
+
+ $(document).ready( function () {
+    $('#dataTable').DataTable();
+} );
 </script>
 
 

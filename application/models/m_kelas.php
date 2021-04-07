@@ -21,7 +21,10 @@
   //   $query = $this->db->get();
   //   return $query;
   //  }
+
   function get_kelas_list($limit, $start){
+    $cari = $this->input->GET('cari', TRUE); 
+    $this->db->like("nama_kelas" , $cari);  
     $query = $this->db->get('kelas', $limit, $start);
     return $query;
 }

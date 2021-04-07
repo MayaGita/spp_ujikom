@@ -18,16 +18,17 @@ class m_entry extends CI_Model{
         return $data->result();
     }
     
- 	public function select_pembayaran(){
+ 	public function select_siswa($cari){
+        $bulan=$this->input->get('bulan');
         $this->db->select('*');
-        $this->db->from('pembayaran');
-        $this->db->join('petugas','petugas.id_petugas =petugas.id_petugas');      
-        $this->db->join('kelas','pembayaran.id_kelas =kelas.id_kelas');      
-        $this->db->join('siswa','pembayaran.nisn =siswa.nisn');      
-        $this->db->join('spp','pembayaran.id_spp =spp.id_spp');
-   
-    
-        $query = $this->db->get();
+        $this->db->from('siswa');     
+        $this->db->join('kelas','siswa.id_kelas =kelas.id_kelas');      
+        $this->db->join('spp','siswa.id_spp =spp.id_spp'); 
+           
+        $this->db->like("bulan_dibayar" , $cari); 
+        
+          
+        $query = $this->db->get()->result_array();
         return $query;
        }
        
@@ -58,13 +59,37 @@ class m_entry extends CI_Model{
         $this->db->where($array);
 
         $query = $this->db->get('pembayaran', $nisn , $bulan, $tahun);
-        if ($query->num_rows() == 0){
+        if ($query->num_rows() > 0){
             return true;
         }
         else{
             return false;
         }
       }
+
+      public function getBulan(){
+         $bulan=$this->input->get('bulan');
+        $this->db->select('*');
+        $this->db->from('pembayaran');   
+        $this->db->join('siswa','pembayaran.nisn =siswa.nisn');      
+        $this->db->join('kelas','pembayaran.id_kelas =kelas.id_kelas');      
+        $this->db->join('spp','pembayaran.id_spp =spp.id_spp'); 
+        $this->db->where("bulan_dibayar" , $bulan);     
+        $query = $this->db->get()->result_array();
+        return $query;
+      }
+
+      public function cekStatus($nisn, $tahun, $bulan)
+      {
+          $this->db->select('*');
+          $this->db->from('pembayaran');
+          $this->db->join('siswa', 'pembayaran.nisn = siswa.nisn');
+          $array = array('siswa.nisn' => $nisn, 'pembayaran.bulan_dibayar' => $bulan, 'pembayaran.tahun_dibayar' => $tahun);
+          $this->db->where($array);
+          return $this->db->get()->num_rows();
+      }
+
+  
        
 
  

@@ -11,14 +11,21 @@
    
   
 
- 	public function select_petugas(){
+ 	// public function select_petugas(){
+  //   $cari = $this->input->GET('cari', TRUE); 
+  //   $this->db->select('*');
+  //   $this->db->from('petugas');
+  //   $this->db->like("username" , $cari);  
+  //   $query = $this->db->get();
+  //   return $query;
+  //  }
+   function get_petugas_list($limit, $start){
     $cari = $this->input->GET('cari', TRUE); 
-    $this->db->select('*');
-    $this->db->from('petugas');
     $this->db->like("username" , $cari);  
-    $query = $this->db->get();
+    $query = $this->db->get('petugas', $limit, $start);
     return $query;
-   }
+}
+ 
    
    public function select_kelas(){
 	   $kelas=$this->db->query("select*from kelas ");

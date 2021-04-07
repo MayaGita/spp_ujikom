@@ -54,14 +54,15 @@ class entry extends CI_Controller {
 	   $this->load->view('include/user-footer');
 
 	   
-   }else{   
-     if($this->M_entry->isPembayaranExist($nisn , $bulan , $tahun) == false){
+   }else{  
+	   $nisn = $this->input->post('nisn');
+	   $bulan =$this->input->post('bulan_dibayar');
+	   $tahun = $this->input->post('tahun_dibayar'); 
+     if($this->M_entry->isPembayaranExist($nisn , $bulan , $tahun)) {
 		 	
-		$this->load->view('include/entry-header', $data);
-		$this->load->view('entry/insert' ,$data);
-		$this->load->view('include/user-footer');
-        
-		$this->session->set_flashdata('message2', "spp sudah dibayar");
+
+		$this->session->set_flashdata('message2', "Spp sudah dibayar");
+		redirect('entry/insert');
 
 	
 		}else{
@@ -81,7 +82,7 @@ class entry extends CI_Controller {
 			   
 				$this->M_entry->tambah_data('pembayaran', $data);
 		
-			   $this->session->set_flashdata('message', "pembayaran berhasil");
+			   $this->session->set_flashdata('message', "Pembayaran berhasil");
 			   redirect('history/history');
 
 		}
@@ -89,13 +90,83 @@ class entry extends CI_Controller {
 	
    }
 
+
  
 
 	}
+	public function Laporan(){
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
+		$data['page_title'] = 'Laporan pembayaran'; 
+		$data['pagename'] = 'admin page';
+	
+		$data['bulan'] = $this->M_entry->getBulan();
+
+
+		$bulan = array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
+		
+		$month= array();
+		for($b = 0 ; $b < 12; $b++){
+		   $month[] = array( 
+			   
+		   'bulan'=> $bulan[$b]
+		   
+		);         
+		}
+		$data['bulan']=  $month;
+
+		$this->load->view('include/admin-header', $data);
+        $this->load->view('entry/laporan', $data);
+        $this->load->view('include/user-footer');
+
+	}
   
-    // public function insert(){
- 
-	// }
+	public function isiLaporan()
+    {
+
+		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
+	    $data['page_title'] = 'Laporan pembayaran'; 
+	    $data['pagename'] = 'admin page';
+
+	    $cari=$this->input->POST('GET', TRUE);
+	    $bulan = array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
+
+        $data['info'] = $this->M_entry->select_pembayaran($cari);
+		
+	
+        $infoSiswa = array();
+
+        foreach ($data['info'] as $info) {
+            for ($b = 0; $b < 12; $b++) {
+                for ($tahun = 2021; $tahun <= date('Y'); $tahun++) {
+
+                    $cek = $this->M_entry->cekStatus($info['nisn'], $tahun, $bulan[$b]);
+
+                    if ($cek) {
+                        $status = 'Lunas';
+                    } else {
+                        $status = 'belum lunas';
+                    }
+
+                    $infoSiswa[] = array(
+						
+                        'nisn' => $info['nisn'],
+                        'nama' => $info['nama'],
+                        'nama_kelas' => $info['nama_kelas'],
+                        'tahun' => $tahun,
+                        'bulan' => $bulan[$b],
+                        'status' => $status,
+                    );
+                }
+            }
+        }
+        $data['info'] = $infoSiswa;
+		
+
+        $data['title'] = 'laporan';
+        $this->load->view('include/admin-header', $data);
+        $this->load->view('entry/isilaporan', $data);
+        $this->load->view('include/user-footer');
+    }
 
 
 

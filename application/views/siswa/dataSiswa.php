@@ -31,7 +31,7 @@
                
                 <input type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Data" name="cari">
                 <div class="input-group-append">
-                <button class="btn btn-cyan" type="submit" calue="cari">search</button>
+                <button class="btn btn-cyan" type="submit" value="cari">search</button>
                 </form>
                 
 
@@ -90,14 +90,13 @@
                        <tbody>
                        <?php
                   $i =0;
-                  if(count($siswa)>0)
-                  {
-                  foreach ($siswa as $student) {
+           
+                  foreach ($siswa->result() as $student) {
                      $i++;
                   ?>   
                       
 
-                <tr style='cursor:pointer;' class='clickable-row' data-href='<?php echo base_url(); ?>siswa/update/<?php echo $student->nisn; ?>'>
+                <tr>
                   <td> <?php echo $i ?></td>
                   <td> <?php echo $student->nisn; ?></td>
                   <td> <?php echo $student->nis; ?></td>
@@ -107,30 +106,24 @@
                   <td> <?php echo $student->no_telp; ?></td>
                   <td> <?php echo $student->nominal; ?></td>
                   <td> <?php echo $student->tahunAjaran; ?></td>
-                  <td>
+                  <td> <a href="<?php echo base_url(); ?>siswa/update/<?php echo $student->nisn; ?>" class="badge badge-info"><i class="fas fa-edit"></i></a>
                   <a href="<?php echo base_url(); ?>siswa/delete/<?php echo $student->nisn; ?>" class="badge badge-danger" 
                   onclick="return confirm('apakah anda yakin?')"><i class="far fa-trash-alt"></i></a>
                   </td>
                 </tr>
                   
-             
-                </tr>
-
-                <?php }
-      
-                     }
-                   
-                     else
-                     {
-                        echo "Data tidak ditemukan";
-                     }
-                   
-                   ?>
+   
+                <?php  } ?>  
+        
                 </tbody>   
                </table>
-
- 
+               <div class="row">
+        <div class="col">
+            <!--Tampilkan pagination-->
+            <?php echo $pagination; ?>
+        </div>
     </div>
+       
                </div>
               </div>
             </div>
@@ -142,4 +135,4 @@
       </div>
  </div>   
 
-    
+ 

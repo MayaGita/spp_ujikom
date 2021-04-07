@@ -16,17 +16,25 @@
   //        return $data->result();
   //    }
 
- 	public function select_siswa(){
+ 	// public function select_siswa(){
+  //   $cari = $this->input->GET('cari', TRUE); 
+  //   $this->db->select('*');
+  //   $this->db->from('siswa');
+  //   $this->db->join('kelas','siswa.id_kelas =kelas.id_kelas');      
+  //   $this->db->join('spp','siswa.id_spp =spp.id_spp'); 
+  //   $this->db->like("nama" , $cari);     
+  //   $query = $this->db->get();
+  //   return $query;
+  //  }
+   function get_siswa_list($limit, $start){
     $cari = $this->input->GET('cari', TRUE); 
-    $this->db->select('*');
-    $this->db->from('siswa');
     $this->db->join('kelas','siswa.id_kelas =kelas.id_kelas');      
     $this->db->join('spp','siswa.id_spp =spp.id_spp'); 
-    $this->db->like("nama" , $cari);     
-    $query = $this->db->get();
+    $this->db->like("nama" , $cari);  
+    $query = $this->db->get('siswa', $limit, $start);
     return $query;
-   }
- 	
+}
+ 
    
 
    public function tambah_siswa($table,$data){

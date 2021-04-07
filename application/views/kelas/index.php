@@ -75,6 +75,7 @@
 
                 <tr>
                   <td> <?php echo $i ?></td>
+          
                   <td> <?php echo $class->id_kelas; ?></td>
                   <td> <?php echo $class->nama_kelas; ?></td>
                   <td> <?php echo $class->jurusan; ?></td>
@@ -97,6 +98,7 @@
             <?php echo $pagination; ?>
         </div>
     </div>
+
                </div>
               </div>
             </div>

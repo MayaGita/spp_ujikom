@@ -8,12 +8,15 @@
 
  <?php if($this->session->flashdata('message')) : ?>
               <div class="alert alert-success  alert-dismissible fade show mb-4" role="alert">
-                  <p><?php echo $this->session->flashdata('message'); ?> </p>  
+              <hr>
+                  <h4><i class="far fa-check-circle fa-lg"></i> <?php echo $this->session->flashdata('message'); ?> </h4>  
+                  <hr>    
              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
              </div>  
              <?php endif; ?>    
+
                        
 
     <div class="card bg-white  shadow mb-3" >
