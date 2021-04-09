@@ -1,29 +1,18 @@
-  <!-- Footer -->
-  <footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
           </div>
         </div>
       </footer>
-      <!-- End of Footer -->
-
     </div>
-    <!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header bg-gray-900">
+        <div class="modal-header " style="background-color: #009790">
           <h5 class="modal-title text-light" id="exampleModalLabel">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
@@ -37,10 +26,6 @@
       </div>
     </div>
   </div>
-  <script>
-  var base_url ="<?= base_url('')?>";
-  </script>
-
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url('asset/')?>vendor/jquery/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -53,10 +38,10 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="<?= base_url('plugin/')?>datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
   <!-- Custom scripts for all pages-->
-  <script src="<?= base_url('asset/')?>js/sb-admin-2.min.js"></script>
-  <script src="<?=base_url('asset/')?>js/script.js"></script>
+
+
 
   
   <script>
@@ -73,9 +58,7 @@
      $('select').select2();
  });
 
- $(document).ready( function () {
-    $('#dataTable').DataTable();
-} );
+
 </script>
 
 

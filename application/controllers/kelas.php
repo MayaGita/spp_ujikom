@@ -54,7 +54,7 @@ class kelas extends CI_Controller {
   
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel kelas'; 
-		$data['pagename'] = 'admin page';
+		$data['pagename'] = 'admin ';
 		// $data['kelas']=$this->M_kelas->select_kelas($config["per_page"], $data['page'])->result();
 
 		

@@ -18,7 +18,7 @@ class spp extends CI_Controller {
 	public function index(){
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel spp'; 
-		$data['pagename'] = 'admin page';
+		$data['pagename'] = 'admin  	';
 		$data['spp']=$this->M_spp->select_spp()->result();
 
 		

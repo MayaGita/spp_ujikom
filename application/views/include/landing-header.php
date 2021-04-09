@@ -17,10 +17,15 @@
   <link href="<?= base_url('assetsLanding/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="<?= base_url('assetsLanding/')?>https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="<?= base_url('assetsLanding/')?>vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link href="<?= base_url('assetsLanding/')?>css/stylish-portfolio.css" rel="stylesheet">
   <style>
+  .masthead2{
+    background-image:url"(<?= base_url('assetsLanding/')?>img/bg.jpg");
+  }
      
       </style>
 

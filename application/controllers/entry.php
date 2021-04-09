@@ -18,7 +18,7 @@ class entry extends CI_Controller {
 	public function index(){
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel '; 
-		$data['pagename'] = 'admin page';
+		$data['pagename'] = 'admin ';
 
         $data['cari'] = $this->M_entry->cariSiswa();
 		
@@ -94,43 +94,21 @@ class entry extends CI_Controller {
  
 
 	}
-	public function Laporan(){
-		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
-		$data['page_title'] = 'Laporan pembayaran'; 
-		$data['pagename'] = 'admin page';
-	
-		$data['bulan'] = $this->M_entry->getBulan();
 
-
-		$bulan = array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
-		
-		$month= array();
-		for($b = 0 ; $b < 12; $b++){
-		   $month[] = array( 
-			   
-		   'bulan'=> $bulan[$b]
-		   
-		);         
-		}
-		$data['bulan']=  $month;
-
-		$this->load->view('include/admin-header', $data);
-        $this->load->view('entry/laporan', $data);
-        $this->load->view('include/user-footer');
-
-	}
   
 	public function isiLaporan()
     {
 
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 	    $data['page_title'] = 'Laporan pembayaran'; 
-	    $data['pagename'] = 'admin page';
+	    $data['pagename'] = 'admin ';
 
-	    $cari=$this->input->POST('GET', TRUE);
 	    $bulan = array('januari', 'februari', 'maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'november', 'desember');
+	
+		$search=$this->input->Get('search',TRUE);
+		
+        $data['info'] = $this->M_entry->select_siswa();
 
-        $data['info'] = $this->M_entry->select_pembayaran($cari);
 		
 	
         $infoSiswa = array();
@@ -138,6 +116,8 @@ class entry extends CI_Controller {
         foreach ($data['info'] as $info) {
             for ($b = 0; $b < 12; $b++) {
                 for ($tahun = 2021; $tahun <= date('Y'); $tahun++) {
+					
+				
 
                     $cek = $this->M_entry->cekStatus($info['nisn'], $tahun, $bulan[$b]);
 
@@ -146,6 +126,7 @@ class entry extends CI_Controller {
                     } else {
                         $status = 'belum lunas';
                     }
+				}
 
                     $infoSiswa[] = array(
 						
@@ -156,7 +137,7 @@ class entry extends CI_Controller {
                         'bulan' => $bulan[$b],
                         'status' => $status,
                     );
-                }
+                
             }
         }
         $data['info'] = $infoSiswa;
@@ -165,7 +146,7 @@ class entry extends CI_Controller {
         $data['title'] = 'laporan';
         $this->load->view('include/admin-header', $data);
         $this->load->view('entry/isilaporan', $data);
-        $this->load->view('include/user-footer');
+       
     }
 
 

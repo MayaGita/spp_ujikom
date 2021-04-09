@@ -17,7 +17,7 @@
              </div>  
              <?php endif; ?> 
     <div class="card shadow mb-4 " >
-            <div class="card-header py-3 " > 
+            <div class="card-header py-3 " style="background-color: #009790" > 
               <h6 class="m-0 font-weight-bold ">pembayaran</h6>
       
             </div>

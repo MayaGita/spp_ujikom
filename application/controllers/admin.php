@@ -15,7 +15,7 @@ class admin extends CI_Controller {
 	 public function index(){
 		     $data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 			 $data['page_title'] = 'halaman admin'; 
-			 $data['pagename'] = 'admin page'; 
+			 $data['pagename'] = 'Admin'; 
 			 $data['siswa']= $this->db->count_all('siswa');
 			 $data['petugas2']= $this->db->count_all('petugas');
 

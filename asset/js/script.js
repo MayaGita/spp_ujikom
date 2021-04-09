@@ -1,31 +1,13 @@
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
-$(function(){
-
-    $(".Mymodal").on('click', function(){
-     
-
-        const id = $(this).data('id');       
-
-        
-        $.ajax({
-            url : 'http://localhost/spp_ujikom/entry/insert',
-            data: {id : $(id).val()},   
-            type : "POST",        
-            success: function(data){
-                 $('insert').html(data); 
-              
-            }
-
-             
-            
-        });
-        
-
-       
-    });
-
-
-
-
-});
-
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}

@@ -18,7 +18,7 @@ class history extends CI_Controller {
 	public function history(){
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'history '; 
-		$data['pagename'] = 'admin page';
+		$data['pagename'] = 'admin ';
 
         $data['recent'] = $this->M_history->tampilHistory()->result();
 

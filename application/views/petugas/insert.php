@@ -6,16 +6,25 @@
 </style>
           
 <div class="container-fluid mt-5">
-
+<?php if($this->session->flashdata('message2')) : ?>
+              <div class="alert alert-danger  alert-dismissible fade show mb-4" role="alert">
+              <hr>
+                  <h4><i class="fas fa-exclamation fa-lg"></i> <?php echo $this->session->flashdata('message2'); ?> </h4>  
+                  <hr>    
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+             </div>  
+             <?php endif; ?> 
     <div class="card shadow mb-4 " >
-            <div class="card-header py-3 " > 
+            <div class="card-header py-3 " style="background-color: #009790" > 
               <h6 class="m-0 font-weight-bold ">pembayaran</h6>
       
             </div>
              
                
                 <div class="card-body " >
-                <?php echo form_open_multipart('petugas/entryInsert');?>
+                <?php echo form_open_multipart('entry/insert');?>
                
                    <div class="form-row text-center mx-5 mt-5">
                      <div class="form-group col-md-3">

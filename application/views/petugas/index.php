@@ -1,80 +1,44 @@
+<main>
 
-<div class="container-fluid">
 
-
-<div class="card shadow mb-4">
-      <div class="card-header py-3 ">
-       <h6 class="m-0 font-weight-bold  ">DASHBOARD</h6>
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-               Atque repellendus expedita harum, error incidunt nostrum iste mollitia 
-              dolores laborum doloribus vitae laboriosam praesentium alias ad totam repudiandae! Nisi, voluptas magnam.
-            </p>
-         </div>
-        </div>
-<!-- Content Row -->
-<div class="row">
-
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card  shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">jumlah siswa (keseluruhan)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">500 siswa</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="recent-grid">
+<div class="projects">
+ <div class="card " style="border-radius: 15px 15px">
+ <div class="card-header " style="background-color: #009790">
+  <h4>Dashboard</h4>
   </div>
+  <div class="card-body">
+     <h2>Halaman petugas</h2>
+   </div>
+   </div>
+ 
+</div>
 
-  <!-- Earnings (Monthly) Card Example -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card  shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">jumlah akun spp siswa(terdaftar)</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">  siswa</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card  shadow h-100 py-2">
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">jumlah petugas yang memiliki hak akses</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"> orang</div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-user fa-2x text-gray-300"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+<div class="cards">
+ <div class="card-single">
+   <div>
+       <h1></h1>
+       <span>jumlah akun siswa</span>
+   </div>
+   <div>
+      <span class="fas fa-users"></span>
+   </div>
+ </div>
+
+ <div class="card-single">
+   <div>
+       <h1></h1>
+       <span>jumlah akun petugas</span>
+   </div>
+   <div>
+      <span class="fas fa-users"></span>
+   </div>
+ </div>
+ 
 
 
 </div>
 
-
-        
-          </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-    
+</main>

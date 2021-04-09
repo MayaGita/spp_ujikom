@@ -17,7 +17,7 @@ class siswa extends CI_Controller {
 	 public function index(){
 		$data['siswa'] = $this->db->get_where('siswa',['username'=> $this->session->userdata('username')])->row_array();
 			 $data['page_title'] = 'siswa'; 
-			 $data['pagename'] = 'halaman siswa'; 
+			 $data['pagename'] = ' Siswa'; 
 
 			// if($this->input->post('keyword')){
 			//	 $data['storage'] = $this->Model_storage->searchData();
@@ -31,7 +31,7 @@ class siswa extends CI_Controller {
 	public function dataSiswa(){	
 		$config['base_url'] = site_url('siswa/dataSiswa'); //site url
 	$config['total_rows'] = $this->db->count_all('siswa'); //total row
-	$config['per_page'] = 3;  //show record per halaman
+	$config['per_page'] = 5;  //show record per halaman
 	$config["uri_segment"] = 3;  // uri parameter
 	$choice = $config["total_rows"] / $config["per_page"];
 	$config["num_links"] = floor($choice);
@@ -67,7 +67,7 @@ class siswa extends CI_Controller {
 
 		$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 		$data['page_title'] = 'tabel siswa'; 
-		$data['pagename'] = 'admin page';
+		$data['pagename'] = 'admin ';
 
 		
 		$this->load->view('include/admin-header',$data);
@@ -173,7 +173,7 @@ class siswa extends CI_Controller {
 		$data['nama'] = $this->db->get_where('siswa',['nama'=> $this->session->userdata('nama')])->row_array();
 		$data['id_kelas'] = $this->db->get_where('siswa',['id_kelas'=> $this->session->userdata('id_kelas')])->row_array();
 			 $data['page_title'] = 'siswa'; 
-			 $data['pagename'] = 'halaman siswa'; 
+			 $data['pagename'] = ' siswa'; 
 
 			// if($this->input->post('keyword')){
 			//	 $data['storage'] = $this->Model_storage->searchData();
@@ -186,7 +186,7 @@ class siswa extends CI_Controller {
 		public function history(){
 			$data['siswa'] = $this->db->get_where('siswa',['username'=> $this->session->userdata('username')])->row_array();
 			$data['page_title'] = 'history '; 
-			$data['pagename'] = 'halaman siswa';
+			$data['pagename'] = ' siswa';
 	
 			$data['recent'] = $this->M_siswa->tampilHistory()->result();
 	

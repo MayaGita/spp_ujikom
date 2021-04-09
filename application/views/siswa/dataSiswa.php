@@ -1,16 +1,16 @@
+<main>
 
 
-          
-
-               
-             
-       <div class="card shadow mb-4 " >
-            <div class="card-header py-3" > 
-              <h6 class="m-0 font-weight-bold ">Data siswa</h6>
-            </div>
-
-            <center>
-            <a href="<?php echo site_url('siswa/create')?>" class="btn btn-cyan col-6 ml-5 mt-5 mb-5 justify-content-center text-white   " >Tambah data siswa</a>
+<div class="recent-grid">
+<div class="projects">
+ <div class="card " style="border-radius: 15px 15px">
+ <div class="card-header " style="background-color: #009790">
+  <h4>Data siswa</h4>
+  </div>
+  <div class="card-body">
+ 
+             <center>
+            <a href="<?php echo site_url('siswa/create')?>" class="btn btn-info col-6 ml-5 mt-5 mb-5 justify-content-center text-white   " >Tambah data siswa</a>
              </center>
 
              <?php if($this->session->flashdata('message')) : ?>
@@ -20,35 +20,27 @@
              <span aria-hidden="true">&times;</span>
              </button>
              </div>  
-             <?php endif; ?>    
+             <?php endif; ?>  
 
-             <div class="row mt-2 ml-3" >
+
+   <div class="row mt-2 ml-3" >
                 <div class="col-md-3">
-  
-                <form action="" method="GET" class="justify-content-right">
-                <div class="input-group ">
-                
-               
+                <form action="" method="GET" class="justify-content-right"> 
+                 <div class="input-group">
                 <input type="text" class="form-control"  aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Data" name="cari">
                 <div class="input-group-append">
-                <button class="btn btn-cyan" type="submit" value="cari">search</button>
+                <button class="btn btn-info" type="submit" calue="cari">search</button>
+                </div>
                 </form>
                 
-
                 </div>
                 
                 </div>
-                
-                </div>
-             </div>      
-            
-               
+             
 
-              
-               <div class="container-fluid">
-               
-                <div class="card-body" >
-                 <div class="table-responsive">
+          
+
+  <div class="table-responsive mt-5">
                 <table class="table table-hover  table-sm" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                      <tr>
@@ -124,15 +116,15 @@
         </div>
     </div>
        
-               </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-        </div>
-      </div>
- </div>   
-
+   </div>
+   </div>
  
+</div>
+
+
+
+
+
+</div>
+
+</main>

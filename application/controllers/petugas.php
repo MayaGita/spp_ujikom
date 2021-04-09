@@ -32,7 +32,7 @@ class petugas extends CI_Controller {
 		public function dataPetugas(){
 			$config['base_url'] = site_url('petugas/dataPetugas'); //site url
 	$config['total_rows'] = $this->db->count_all('petugas'); //total row
-	$config['per_page'] = 1;  //show record per halaman
+	$config['per_page'] = 2;  //show record per halaman
 	$config["uri_segment"] = 3;  // uri parameter
 	$choice = $config["total_rows"] / $config["per_page"];
 	$config["num_links"] = floor($choice);
@@ -67,7 +67,7 @@ class petugas extends CI_Controller {
 
 			$data['petugas'] = $this->db->get_where('petugas',['username'=> $this->session->userdata('username')])->row_array();
 			$data['page_title'] = 'tabel petugas'; 
-			$data['pagename'] = 'admin page';
+			$data['pagename'] = 'admin ';
 			// $data['dataPetugas']=$this->M_petugas->select_petugas()->result();
 	
 			
